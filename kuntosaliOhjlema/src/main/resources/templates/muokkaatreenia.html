@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Treeniohjelma</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Lisää treeni</h1>
+	<div>
+		<form th:object="${treeni}" th:action="@{../save}" action="#" method="post">
+			<input type="hidden" th:field="*{id}" class="form-control"/>
+			<label for="nimi">Nimi</label>
+			<input type="text" id="nimi" th:field="*{nimi}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="lihakset">Lihakset</label>
+			<input type="text" id="lihakset" th:field="*{lihakset}" />
+			<div style="clear: both; display: block; height: 10px;"></div>		  	
+		  	<label for="kerta">Kerta</label>
+			<input type="text" th:field="*{kerta}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="kesto">Kesto</label>
+			<input type="text" id="kesto" th:field="*{kesto}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="tyyppi">Tyyppi</label>
+			 <select id="tyyppi" th:field="*{tyyppi}" class="form-control">
+       			<option th:each="tyyppi: ${tyypit}" th:value="${tyyppi.tyyppiid}" th:text="${tyyppi.nimi}"></option>
+    		</select>
+    		<div style="clear: both; display: block; height: 10px;"></div>
+									
+		  	
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>
