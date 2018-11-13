@@ -9,19 +9,20 @@
 	<div>
 		<form th:object="${treeni}" th:action="@{../save}" action="#" method="post">
 			<input type="hidden" th:field="*{id}" class="form-control"/>
-			<label for="nimi">Nimi</label>
+			<label for="nimi">Treenin nimi</label>
 			<input type="text" id="nimi" th:field="*{nimi}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-		  	<label for="lihakset">Lihakset</label>
+		  	<label for="lihakset">Treenattavat lihakset</label>
 			<input type="text" id="lihakset" th:field="*{lihakset}" />
 			<div style="clear: both; display: block; height: 10px;"></div>		  	
-		  	<label for="kerta">Kerta</label>
+		  	<label for="kerta">Treenin määrä viikossa</label>
 			<input type="text" th:field="*{kerta}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="kesto">Kesto</label>
+			<label for="kesto">Treenin kesto tunteina</label>
 			<input type="text" id="kesto" th:field="*{kesto}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="tyyppi">Tyyppi</label>
+			<label for="tyyppi">Treenin tyyppi</label>
+			 <select id="tyyppi" th:field="*{tyyppi}" class="form-control">
 			 <select id="tyyppi" th:field="*{tyyppi}" class="form-control">
        			<option th:each="tyyppi: ${tyypit}" th:value="${tyyppi.tyyppiid}" th:text="${tyyppi.nimi}"></option>
     		</select>

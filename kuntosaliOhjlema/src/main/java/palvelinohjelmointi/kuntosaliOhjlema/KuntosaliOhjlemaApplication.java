@@ -25,16 +25,19 @@ public class KuntosaliOhjlemaApplication {
 	@Bean
 	public CommandLineRunner treeniDemo(TreeniRepository trepository, TyyppiRepository yrepository, UserRepository urepository) {
 		return (args) -> {
-			log.info("save a couple of books");
+			log.info("luodaan treenityypit");
 			yrepository.save(new Tyyppi("Rintapäivä"));
 			yrepository.save(new Tyyppi("Selkäpäivä"));
 			yrepository.save(new Tyyppi("Jalkapäivä"));
 			yrepository.save(new Tyyppi("Käsipäivä"));
 			
-			trepository.save(new Treeni("Maken raivo maanantai", "rinta", 1 , 1, yrepository.findByNimi("Rintapäivä").get(0)));
+			trepository.save(new Treeni("Maken raivo maanantai", "rinta", 2 , 1, yrepository.findByNimi("Rintapäivä").get(0)));
+			trepository.save(new Treeni("Käsi keskiviikko", "kädet", 1 , 1, yrepository.findByNimi("Käsipäivä").get(0)));
+			trepository.save(new Treeni("Pohje perjantai", "jalat", 1 , 1, yrepository.findByNimi("Jalkapäivä").get(0)));
+			trepository.save(new Treeni("Selkätreeni ", "selkä", 1 , 2, yrepository.findByNimi("Selkäpäivä").get(0)));
 			
-			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
-			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
+			User user1 = new User("user", "904398274098F9F52B54110E99A2069A", "USER");
+			User user2 = new User("admin", "904398274098F9F52B54110E99A2069AC", "ADMIN");
 			urepository.save(user1);
 			urepository.save(user2);
 			
